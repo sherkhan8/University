@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -13,6 +15,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 @ComponentScan({ "com.ali.wahaj.controller", "com.ali.wahaj.service" })
 @EntityScan("com.ali.wahaj.entity")
 @EnableJpaRepositories("com.ali.wahaj.repository")
+@EnableFeignClients("com.ali.wahaj.feignclients")
+@EnableDiscoveryClient
 public class StudentApplication {
 
 	@Value("${address.service.url}")
